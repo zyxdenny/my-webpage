@@ -201,10 +201,12 @@ motto =
     [ mainPar
       [ text
         "Four things I love: "
-      , el [ Font.bold ]( text "technology, " )
-      , el [ Font.bold ]( text "artistry, " )
-      , el [ Font.bold ]( text "simplicity, " )
-      , text "and "
+      , el [ Font.bold ]( text "technology" )
+      , text ", "
+      , el [ Font.bold ]( text "artistry" )
+      , text ", "
+      , el [ Font.bold ]( text "simplicity" )
+      , text ", and "
       , el [ Font.bold ]( text "reliability" )
       , text ". "
       , text
