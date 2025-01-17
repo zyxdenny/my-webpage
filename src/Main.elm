@@ -269,7 +269,7 @@ motto =
         , newTabLink
           [ Font.color lightBlue
           ]
-          { url = "https://elm-lang.org/"
+          { url = "https://github.com/zyxdenny/my-webpage"
           , label = text "Elm"
           }
         , text
