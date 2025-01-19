@@ -169,6 +169,8 @@ body =
     [ about
     , motto
     , cv
+    , contact
+    , miscellaneous
     ]
 
 about =
@@ -297,5 +299,64 @@ cv =
         ". "
       , text
         "It is composed in Typst (again, a very cool typesetting software)!"
+      ]
+    ]
+
+contact =
+  section "Contact"
+    [ mainPar
+      [ text
+        "Please contact me via "
+      , el
+          [ Font.size 16
+          , Font.family 
+            [ Font.external
+              { name = "Fira Code"
+              , url = "https://fonts.googleapis.com/css2?family=Fira+Code"
+              }
+            , Font.monospace
+            ]
+          , Font.underline
+          ]
+          ( text "yx.zheng766 [at] gmail [dot] com" )
+        , text "."
+      ]
+    ]
+
+miscellaneous =
+  section "Miscellaneous" 
+    [ mainPar
+      [ text
+        "I love sports. I like to watch football, basketball, tennis and badminton matches, "
+      , text
+        "but the only sports I'm good at are badminton and table tennis."
+      ]
+    , mainPar
+      [ text
+        "I love cooking (especially Chinese food, the best of all). I prefer making my own dish rather than eat out. "
+      , text
+        "This is similar to the spirit if GNU/Linux, where you enjoy making your own stuffs. "
+      , el [ Font.italic ]
+        ( text "TODO: " )
+      , text
+        "I will share my recipes here 🤤."
+      ]
+    , mainPar
+      [ text
+        "I love photography, though I'm quite new to it. Needs more practice! "
+      , el [ Font.italic ]
+        ( text "TODO: " )
+      , text
+        "I will share my photos here 📷."
+      ]
+    , mainPar
+      [ text
+        "I'm not a big fan of video games. The only game I was quite \"addicted to\" in the recent years (not anymore now) was "
+      , el [ Font.italic ]
+        ( text "Hearthstone" )
+      , text
+        ", where I had fun developing my own deck (mostly OTK decks) and made the combo work. "
+      , text
+        "Now I feel like games are less attractive to me, compared to, say, building this site, which is even more fun 😃."
       ]
     ]
