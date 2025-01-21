@@ -6,6 +6,8 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Html exposing (Html)
+import Svg exposing (Svg)
+import Svg.Attributes as SvgAttr
 
 main =
   Browser.sandbox { init = (), update = update, view = view }
@@ -17,6 +19,11 @@ update _ model = model
 
 view : model -> Html msg
 view _ = layout [] all
+
+svgToElem : Svg msg -> Element msg
+svgToElem svg =
+  Svg.svg [] [ svg ]
+    |> html
 
 -- Elements
 lightBlue =
@@ -77,8 +84,10 @@ all =
       , left = 30
       , right = 30
       }
+    , spacing 20
     ]
     [ header
+    , navbar
     , body
     ]
 
@@ -151,6 +160,63 @@ portrait =
         ]
       )
     ]
+
+navbar =
+  let
+    navBarElem name =
+      el
+        [ width
+          ( fill
+          --|> maximum 140
+          |> minimum 100
+          )
+        , height <| px 50
+        , Border.width 2
+        , Border.rounded 8
+        , mouseOver [ alpha 0.5 ]
+        , Font.size 20
+        , Font.family 
+          [ Font.external
+            { name = "Fira Sans"
+            , url = "https://fonts.googleapis.com/css2?family=Fira+Sans"
+            }
+          , Font.sansSerif
+          ]
+        ]
+        ( el
+          [ centerX
+          , centerY
+          ]
+          ( text name )
+        )
+  in
+    row
+      [ height (px 80)
+      , width fill
+      , spacing 100
+      , paddingXY 50 0
+      , centerX
+      ]
+      [ navBarElem "Blog"
+      , navBarElem "Photo"
+      , navBarElem "Recipe"
+      ]
+
+--post =
+--  Svg.circle
+--    [ SvgAttr.cx "38"
+--    , SvgAttr.cy "38"
+--    , SvgAttr.r "38"
+--    , SvgAttr.fill "none"
+--    , SvgAttr.stroke "black"
+--    -- , SvgAttr.strokeWidth "3"
+--    ]
+--    []
+--    |> svgToElem
+--    |> el
+--    [ width <| px 80
+--    , height <| px 80
+--    ]
 
 body =
   column
