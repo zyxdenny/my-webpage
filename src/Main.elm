@@ -165,7 +165,7 @@ navbar =
   let
     navBarElem name =
       el
-        [ width <| px 100
+        [ width <| px 90
         , height <| px 50
         , Border.width 2
         , Border.rounded 8
@@ -188,10 +188,13 @@ navbar =
   in
     row
       [ height (px 80)
-      , width fill
+      , width
+        ( fill
+          |> maximum 600
+        )
       , spaceEvenly
       , centerX
-      , paddingXY 50 0
+      , paddingXY 10 0
       ]
       [ navBarElem "Blog"
       , navBarElem "Photo"
