@@ -7,6 +7,9 @@ import Element.Border as Border
 import Element.Font as Font
 import Html exposing (Html)
 
+import Style
+
+
 view : model -> Document msg
 view _ =
   { title = "Yuxuan's Webpage"
@@ -15,9 +18,6 @@ view _ =
 
 
 -- Elements
-lightBlue =
-  rgb255 30 144 255
-
 section : String -> List (Element msg) -> Element msg
 section title par =
   column
@@ -25,7 +25,7 @@ section title par =
     [ el
         [ Font.bold
         , Font.size 28
-        , Font.color (rgb255 0 116 217)
+        , Font.color Style.color.blue
         ]
         (text title)
     , column
@@ -61,20 +61,7 @@ mainPar par =
 
 all =
   column
-    [ width
-        (fill
-          |> maximum 800
-        )
-    , height fill
-    , centerX
-    , paddingEach
-      { top = 40
-      , bottom = 150
-      , left = 30
-      , right = 30
-      }
-    , spacing 20
-    ]
+    Style.pageAlign
     [ sectionBar
     , header
     , navbar
@@ -303,7 +290,7 @@ motto =
         , text
           "I always have an open mind towards new things and always happy to try them out. Recently I'm trying to use "
         , newTabLink
-          [ Font.color lightBlue
+          [ Font.color Style.color.lightBlue
           ]
           { url = "https://typst.app/"
           , label = text "Typst"
@@ -331,7 +318,7 @@ motto =
         , text
           "I believe the best software are those that are both functional and simple. "
         , newTabLink
-          [ Font.color lightBlue
+          [ Font.color Style.color.lightBlue
           ]
           { url = "https://suckless.org/"
           , label = text "suckless.org"
@@ -351,7 +338,7 @@ motto =
         , text
           "As an example, this entire webpage is written in "
         , newTabLink
-          [ Font.color lightBlue
+          [ Font.color Style.color.lightBlue
           ]
           { url = "https://github.com/zyxdenny/my-webpage"
           , label = text "Elm"
@@ -370,7 +357,7 @@ cv =
       [ text
         "My CV is posted on Github " 
       , newTabLink
-        [ Font.color lightBlue
+        [ Font.color Style.color.lightBlue
         ]
         { url = "https://github.com/zyxdenny/my-cv/blob/master/cv.pdf"
         , label = text "here"
