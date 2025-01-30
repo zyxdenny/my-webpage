@@ -7,6 +7,7 @@ import Url
 import Url.Parser exposing (Parser, parse, (</>), int, map, oneOf, s, string)
 
 import Page.Home
+import Page.PageNotFound
 
 
 -- Route
@@ -106,9 +107,7 @@ view model =
       Page.Home.view ()
 
     PageNotFound ->
-      { title = "Page Not Found"
-      , body = [ Html.div [] [ Html.text "404" ] ]
-      }
+      Page.PageNotFound.view ()
 
     Blog _ ->
       { title = "yo"
