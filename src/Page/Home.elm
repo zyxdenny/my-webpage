@@ -136,7 +136,7 @@ portrait =
         [ width (px 100)
         , height (px 100)
         ]
-        { src = "./assets/avatar.jpeg"
+        { src = "/assets/avatar.jpeg"
         , description = "My Portrait"
         }
       )
